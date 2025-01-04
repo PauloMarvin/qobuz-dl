@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "qobuz-dl"
+version = "0.1.0"
+description = ""
+authors = ["PauloMarvin <paulo.marving@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pathvalidate = "^3.2.3"
+requests = "^2.32.3"
+mutagen = "^1.47.0"
+tqdm = "^4.67.1"
+pick = "^2.4.0"
+beautifulsoup4 = "^4.12.3"
+colorama = "^0.4.6"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
