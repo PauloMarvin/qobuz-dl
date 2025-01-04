@@ -309,14 +309,17 @@ def tqdm_download(url, fname, desc):
     r = requests.get(url, allow_redirects=True, stream=True)
     total = int(r.headers.get("content-length", 0))
     download_size = 0
-    with open(fname, "wb") as file, tqdm(
-        total=total,
-        unit="iB",
-        unit_scale=True,
-        unit_divisor=1024,
-        desc=desc,
-        bar_format=CYAN + "{n_fmt}/{total_fmt} /// {desc}",
-    ) as bar:
+    with (
+        open(fname, "wb") as file,
+        tqdm(
+            total=total,
+            unit="iB",
+            unit_scale=True,
+            unit_divisor=1024,
+            desc=desc,
+            bar_format=CYAN + "{n_fmt}/{total_fmt} /// {desc}",
+        ) as bar,
+    ):
         for data in r.iter_content(chunk_size=1024):
             size = file.write(data)
             bar.update(size)

@@ -68,9 +68,8 @@ def make_m3u(pl_directory):
                 continue
             track_list.append(index)
 
-    if len(track_list) > 1:
-        with open(os.path.join(pl_directory, pl_name), "w") as pl:
-            pl.write("\n\n".join(track_list))
+    with open(os.path.join(pl_directory, pl_name), "w", encoding="utf-8") as pl:
+        pl.write("\n\n".join(track_list))
 
 
 def smart_discography_filter(
